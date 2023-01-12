@@ -1,0 +1,55 @@
+/* !! Recent Project Container */
+.recent_project_container {
+  /* border: 2px solid blue; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding-block: 8rem;
+  /* width: 100%; */
+}
+/* .area_definer {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
+    border: 2px solid white;
+  } */
+.recent_title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.recent_projects {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.project {
+  max-width: 30rem;
+  aspect-ratio: 1.2/1;
+  /* background-color: #33aacc; */
+  /* min-width: 10rem; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgb(79, 78, 78);
+}
+.project .project_name {
+  text-transform: capitalize;
+}
+.recent_projects > * {
+  flex: 1 1 25rem;
+}
+@media (max-width: 40rem) {
+  .project {
+    aspect-ratio: 1.5/1;
+  }
+}
+@media (max-width: 30rem) {
+  .project {
+    /* background-color: #22ddaa; */
+  }
+}

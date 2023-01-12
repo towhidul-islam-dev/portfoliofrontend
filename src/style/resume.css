@@ -1,0 +1,187 @@
+.resume{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-block: 4rem;
+    padding-inline: 2rem;
+}
+.resume_page{
+    /* z-index: -10; */
+}
+.resume_container{
+    
+    background-color: #E5E5E5;
+    width: min(100%, 695px);
+    margin-inline: auto;
+}
+.resume_bio{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    /* display: inline-block; */
+    /* display: grid; */
+    /* place-items: center; */
+    background-color: #85C5DA;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+}
+.main_content{
+    padding: 2rem;
+}
+.self_info{
+    text-align: left;
+}
+.self_info h6 span {
+    margin-right: .5rem;
+}
+.self_info h6{
+    padding-block: .15rem;
+    text-transform: lowercase;
+}
+.self_info p{
+    padding-block: .25rem;
+    text-transform: capitalize;
+    font-size: clamp(.8rem, 3vw + .8rem + 1.3rem);
+}
+.self_img{
+    max-width: 7rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.self_img > img{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+.edu_info{
+    text-align: left;
+    padding-block-end: 2rem;
+}
+.edu_info h2{
+    margin-bottom: .7rem;
+    text-transform: capitalize;
+}
+.edu_info p{
+    text-transform: capitalize;
+}
+.skills{
+    border: 2px solid rgb(191, 189, 189);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem;
+    border-radius: .25rem;
+}
+.skills > *:nth-child(1){
+    flex: 0 0 20%;
+    position: relative;
+    text-transform: uppercase;
+    text-align: left;
+}
+.skills > *:nth-child(1)::after{
+    position: absolute;
+    content: "";
+    width: 2.5px;
+    height: 4rem;
+    top: 50%;
+    
+    transform: translate(-50%, -50%);
+    background-color: rgb(138, 134, 134);
+    margin-left: 2rem;
+}
+.skills *:nth-child(2){
+    flex: 0 0 75%;
+}
+.skills_content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem , 1fr));
+    gap: .5rem;
+}
+.skills_content  li{
+    color :black;
+    font-variant: small-caps;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+}
+.skills_content li::first-letter{
+    content: "";
+    color: #85C5DA;
+}
+
+
+.project > *:nth-child(1){
+    flex: 0 0 27%;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.project > *:nth-child(2){
+    flex: 0 0 68%;
+}
+.project_content{
+    text-align: left;
+}
+.project_content ul + ul {
+    margin-top: .5rem;
+}
+.project_info{
+    display: flex;
+    justify-content: start;
+}
+.project_info span {
+    margin-right: .25rem;
+    font-weight: bold;
+    color: #c84086
+
+}
+.project_link{
+    text-transform: lowercase;
+    cursor: pointer;
+    word-wrap: break-word;
+    font-size: .6rem;
+}
+.project{
+    /* padding-inline: 2rem; */
+    /* border:2px solid red; */
+    border: 2px solid rgb(191, 189, 189);
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    margin-block: 1rem;
+
+}
+/* ? Media Queries are here */
+@media (min-width: 40rem) {
+    .project{
+        padding: 0.75rem;
+        border: 2px solid rgb(191, 189, 189);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 1rem;
+        border-radius: .25rem;
+    }
+    .project > *:nth-child(1)::after{
+        content: "";
+        position: absolute;
+        width: 2.5px;
+        height: 4rem;
+        top: 50%;
+        
+        transform: translate(-50%, -50%);
+        background-color: rgb(138, 134, 134);
+        margin-left: 1.5rem;
+    }
+
+    .resume{
+        padding-inline: 0;
+    }
+    .resume_bio{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    }
+}

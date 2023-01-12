@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+.form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.signup_container {
+  width: min(100%, 5vw, 600px);
+  border: 2px solid blue;
+  padding: 2rem;
+}
+form {
+  padding: 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(to left bottom, #efcd08, #0cebeb);
+  box-shadow: 0px 0px 15px 2px hsl(10 20% 10% / 0.3);
+}
+.form_title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+.form_title::after {
+  position: absolute;
+  content: "";
+  height: 0.17rem;
+  width: 40%;
+  background: linear-gradient(to right, rgb(14, 237, 237), rgb(9, 9, 242));
+  bottom: 0%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%);
+  transition: opacity 300ms ease-in;
+}
+form:hover .form_title::after {
+  opacity: 1;
+}
+.input_area label {
+  color: rgb(244, 240, 240);
+  font-weight: bold;
+}
+.input_area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.input_area + .input_area {
+  margin-top: 1.5rem;
+}
+.input_area input {
+  background-color: transparent;
+  border: 2px solid rgb(26, 128, 28);
+  outline: none;
+  border-radius: 0.25rem;
+  padding-block: 0.25rem;
+  padding-inline: 1rem;
+}
+.input_area input:focus {
+  border: 2px solid blue;
+}
+.input_area input::placeholder {
+  text-transform: capitalize;
+}
+.form_btn-container {
+  display: grid;
+  place-items: center;
+  margin-top: 2rem;
+}
+.form_btn {
+  text-transform: capitalize;
+  font-weight: bold;
+  border: 2px solid transparent;
+  background-color: #20b5ad;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 300ms ease-in, color 300ms ease-in;
+}
+.form_btn:hover {
+  background-color: #11837e;
+  color: rgb(231, 223, 223);
+}
+.signup_text {
+  text-align: center;
+  margin-top: 1rem;
+}
+.signup_text span a {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: line-through;
+  text-decoration-color: #cd073e;
+}
