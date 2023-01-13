@@ -12,6 +12,8 @@ const Skills = () => {
   const [skill, setSkill] = useState([]);
   const [mySkills, setMySkills] = useState([]);
   const length = skill.length;
+  const length1 = mySkills.length;
+  console.log(length, length1);
 
   const showSkill = async () => {
     const res = await fetch(skillUrl);
@@ -22,12 +24,22 @@ const Skills = () => {
 
   const moveLeft = (e) => {
     e.preventDefault();
-    setCurrent(current <= 0 ? length : current - 1);
+    setCurrent(current <= 0 ? length - 1 : current - 1);
+  };
+  const moveLeft1 = (e) => {
+    e.preventDefault();
+    setCurrent(current <= 0 ? length1 -1 : current - 1);
   };
   const moveRight = (e) => {
+    console.log('right');
     e.preventDefault();
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
+  const moveRight1 = (e) => {
+    e.preventDefault();
+    setCurrent(current === length1 - 1 ? 0 : current + 1);
+  };
+  console.log(current);
 
   useEffect(() => {
     showSkill();
@@ -77,7 +89,8 @@ const Skills = () => {
                 })}  
 
               </div>
-              <div class="skill_navigate_container">
+              {
+                skill.length  > 0 ? <div class="skill_navigate_container">
                 <button
                   class="slider__btn slider__btn--left"
                   onClick={moveLeft}
@@ -90,7 +103,22 @@ const Skills = () => {
                 >
                   <FaAngleRight className="icon" />
                 </button>
-              </div>
+              </div> : <div class="skill_navigate_container">
+                <button
+                  class="slider__btn slider__btn--left"
+                  onClick={moveLeft1}
+                >
+                  <FaAngleLeft className="icon" />
+                </button>
+                <button
+                  class="slider__btn slider__btn--right"
+                  onClick={moveRight1}
+                >
+                  <FaAngleRight className="icon" />
+                </button>
+              </div> 
+              }
+              
             </div>
           </div>
         </div>
