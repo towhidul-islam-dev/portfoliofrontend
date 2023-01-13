@@ -1,5 +1,10 @@
 const ResumeData = [
     {
+        projectName : "PORTFOLIO",
+        project_info : "Here in this personal Portfolio I have implemented both Back-end and Front-end Technology",
+        projectLink : "https://portfolio-zae7.onrender.com",
+    },
+    {
         projectName : "Javascript",
         project_info : "Javascript project here i have used javascript , CSS , HTML to create it.",
         projectLink : "https://distracted-bartik-9404c3.netlify.app",
