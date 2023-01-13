@@ -12,7 +12,7 @@ import { useLogout } from "../hooks/useLogout";
 const Navbar = () => {
   const { logout } = useLogout();
   const navBar = useRef(null);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth);
   const [mobIcon, setMobIcon] = useState(true);
   const currentUser = localStorage.getItem("user");
 
@@ -36,13 +36,15 @@ const Navbar = () => {
     const calcSize = () => {
       setWidth(window.innerWidth);
     };
+    console.log(width);
 
     window.addEventListener("resize", calcSize);
-
+    console.log(window.innerWidth);
     return () => {
       window.removeEventListener("resize", calcSize);
     };
-  }, [width]);
+  }, []);
+console.log(width);
 
   return (
     <div className="main_nav" ref={navBar}>

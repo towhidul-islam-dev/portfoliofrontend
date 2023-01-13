@@ -13,7 +13,6 @@ const Skills = () => {
   const [mySkills, setMySkills] = useState([]);
   const length = skill.length;
   const length1 = mySkills.length;
-  console.log(length, length1);
 
   const showSkill = async () => {
     const res = await fetch(skillUrl);
@@ -31,7 +30,6 @@ const Skills = () => {
     setCurrent(current <= 0 ? length1 -1 : current - 1);
   };
   const moveRight = (e) => {
-    console.log('right');
     e.preventDefault();
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -39,7 +37,6 @@ const Skills = () => {
     e.preventDefault();
     setCurrent(current === length1 - 1 ? 0 : current + 1);
   };
-  console.log(current);
 
   useEffect(() => {
     showSkill();
