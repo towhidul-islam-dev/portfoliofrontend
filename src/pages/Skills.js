@@ -10,7 +10,7 @@ const skillUrl = "http://localhost:3001/api/skill";
 const Skills = () => {
   const [current, setCurrent] = useState(0);
   const [skill, setSkill] = useState([]);
-  const [mySkills, setMySkills] = useState(skillsData);
+  const [mySkills, setMySkills] = useState([]);
   const length = skill.length;
 
   const showSkill = async () => {
@@ -22,36 +22,31 @@ const Skills = () => {
 
   const moveLeft = (e) => {
     e.preventDefault();
-    console.log("left");
     setCurrent(current <= 0 ? length : current - 1);
   };
   const moveRight = (e) => {
     e.preventDefault();
-    console.log("Right");
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
   useEffect(() => {
     showSkill();
   }, [current]);
-  console.log(mySkills);
 
   useEffect(() => {
     const skilData = JSON.parse(localStorage.getItem("skillData"));
     skilData && setSkill(skilData);
-    console.log(skilData);
-    console.log(mySkills);
+    setMySkills(skillsData);
   },[])
   return (
     <>
       <div className="container">
         <h2 className="skill_main_title">some details of my skills</h2>
-
         <div class="skill_container">
           <div class="area_definer">
             <div class="skills1 slider">
               <div>
-                {skill ? skill.map((skill, i) => {
+                {skill.length > 0 ? skill.map((skill, i) => {
                   const { _id, title, desc, year } = skill;
                   return (
                     <div
@@ -65,8 +60,8 @@ const Skills = () => {
                       </h3>
                     </div>
                   )
-                }) : mySkills.map((skill, i) => {
-                  const { _id, title, desc, year } = skill;
+                }) : mySkills.map((oneskill, i) => {
+                  const { _id, title, desc, year } = oneskill;
                   return (
                     <div
                       className={i === current ? "slide active" : "slide"}
@@ -79,8 +74,8 @@ const Skills = () => {
                       </h3>
                     </div>
                   );
-                })}
-                
+                })}  
+
               </div>
               <div class="skill_navigate_container">
                 <button

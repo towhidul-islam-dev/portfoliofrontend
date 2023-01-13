@@ -10,7 +10,7 @@ const projectUrl = "http://localhost:3001/project";
 const Projects = () => {
   // const projectsData = JSON.parse(localStorage.getItem("myProject"));
   const [project, setProject] = useState([]);
-  const [myProject, setMyProject] = useState(projectsData);
+  const [myProject, setMyProject] = useState([]);
 
   const showProject = async () => {
     const res = await fetch(projectUrl);
@@ -26,8 +26,9 @@ const Projects = () => {
       setProject(projects);
     }
   }, [project]);
-
-  
+  useEffect(() => {
+    setMyProject(projectsData);
+  },[])
   return (
     <>
       <div className="container">
@@ -37,7 +38,7 @@ const Projects = () => {
           <div class="project_layout">
             <ProjectForm />
             <div class="projects">
-              {project ? project.map((singleProject) => {
+              {project.length > 0 ? project.map((singleProject) => {
                 const {
                   _id,
                   title,
