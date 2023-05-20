@@ -55,13 +55,12 @@ const Resume = () => {
                                         <h3>{projectName}</h3>
                                         <div className="project_content">
                                             <ul>
-
                                                 <li className='project_info'><span>#</span>{project_info}</li>
-                                                <a className='project_link' href="#">{projectLink}</a>
+                                                <a className='project_link' href={projectLink}>{projectLink}</a>
                                             </ul>
                                             <ul>
                                                 <li className='project_info'><span>#</span>{project_info1}</li>
-                                                <a className='project_link' href="#">{projectLink1}</a>
+                                                <a className='project_link' href={projectLink1}>{projectLink1}</a>
                                             </ul>
                                         </div>
                                     </div>

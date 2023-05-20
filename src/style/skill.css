@@ -34,8 +34,10 @@ li {
   margin: 0 auto;
   position: relative;
 
-  /* border: 2px solid white; */
-  background-color: #aa8181;
+  background-color: hsla(0, 2%, 25%, 0.274);
+  backdrop-filter: blur(1rem);
+  border: 2px solid rgb(75, 74, 74);
+  -webkit-backdrop-filter: blur(1rem);
   border-radius: 1rem;
   z-index: 2;
   /* IN THE END */

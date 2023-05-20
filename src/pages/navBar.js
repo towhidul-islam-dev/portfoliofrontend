@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet} from "react-router-dom";
 // import "../style/userStyle.css";
 import "../style/container.css";
 import "../style/navbarStyle.css";
@@ -15,6 +15,16 @@ const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [mobIcon, setMobIcon] = useState(true);
   const currentUser = localStorage.getItem("user");
+  const [path ,setPath] = useState("/");
+
+
+  const path1 = window.location.pathname;
+  // console.log(path1);
+
+  const handleClick = () => {
+  const url = window.location.pathname;
+    setPath(url);
+  }
 
   // ! Change Icon of Mobile display:::
   const changeIcon = (e) => {
@@ -30,21 +40,19 @@ const Navbar = () => {
 
   useEffect(() => {
     const height = navBar.current.getBoundingClientRect().height;
-    console.log(height);
+
+    setPath("");
   }, []);
   useEffect(() => {
     const calcSize = () => {
       setWidth(window.innerWidth);
     };
-    console.log(width);
 
     window.addEventListener("resize", calcSize);
-    console.log(window.innerWidth);
     return () => {
       window.removeEventListener("resize", calcSize);
     };
   }, []);
-console.log(width);
 
   return (
     <div className="main_nav" ref={navBar}>
@@ -72,17 +80,20 @@ console.log(width);
           <nav className="desktop_nav">
             <ul className="nav_links">
               <li className="nav_list">
-                <Link className="link" to="/">
+
+                <Link onClick={handleClick} className={path === "/" ? "link link_active" : "link"} to="/">
                   Homepage
                 </Link>
               </li>
               <li className="nav_list">
-                <Link className="link" to="/resume">
+
+                <Link onClick={handleClick} className={path === "/resume" ? "link link_active" : "link"} to="/resume">
                   Resume
                 </Link>
               </li>
               <li className="nav_list">
-                <Link className="link" to="/allskills">
+
+                <Link onClick={handleClick} className={path === "/allskills" ? "link link_active" : "link"} to="/allskills">
                   Skills
                 </Link>
               </li>
@@ -98,17 +109,21 @@ console.log(width);
                   </li>
                 ) : (
                   <div className="register_link">
-                    <li className="nav_list">
-                      <Link className="link" to="/signup">
-                        signup
-                      </Link>
-                    </li>
-                    <li className="nav_list">
-                      <Link className="link" to="/login">
-                        Login
-                      </Link>
-                    </li>
-                    
+                    {
+                      currentUser && 
+                      <>
+                        <li className="nav_list">
+                          <Link className="link" to="/signup">
+                            signup
+                          </Link>
+                        </li>
+                        <li className="nav_list">
+                          <Link className="link" to="/login">
+                            Login
+                          </Link>
+                        </li>
+                      </>
+                    }
                   </div>
                 )}
               </div>
@@ -121,37 +136,46 @@ console.log(width);
         >
           <ul className="nav_links1">
             <li className="nav_list1">
-              <Link className="link1" to="/">
+
+              <Link onClick={handleClick} className={path === "/" ? "link link_active" : "link"} to="/">
                 Homepage
               </Link>
             </li>
             <li className="nav_list1">
-              <Link className="link1" to="/resume">
+
+              <Link onClick={handleClick} className={path === "/resume" ? "link link_active" : "link"} to="/resume">
                 Resume
               </Link>
             </li>
             <li className="nav_list">
-                <Link className="link" to="/allskills">
+
+                <Link onClick={handleClick} className={path === "/allskills" ? "link link_active" : "link"} to="/allskills">
                   Skills
                 </Link>
               </li>
             <div>
+
               {currentUser ? (
                 <li className="nav_list1">
                   <button onClick={logoutUser}>Logout</button>
                 </li>
               ) : (
                 <div>
-                  <li className="nav_list1">
-                    <Link className="link1" to="/signup">
-                      signup
-                    </Link>
-                  </li>
-                  <li className="nav_list1">
-                    <Link className="link1" to="/login">
-                      Login
-                    </Link>
-                  </li>
+                  {
+                    currentUser && 
+                      <>
+                        <li className="nav_list1">
+                          <Link className="link1" to="/signup">
+                            signup
+                          </Link>
+                        </li>
+                        <li className="nav_list1">
+                          <Link className="link1" to="/login">
+                            Login
+                          </Link>
+                        </li>
+                      </>
+                  }
                 </div>
               )}
             </div>

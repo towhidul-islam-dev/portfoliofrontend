@@ -12,6 +12,8 @@ import {
 import Homepage from "./pages/Homepage";
 
 function App() {
+  const currentUser = localStorage.getItem("user");
+
   return (
     <div className="App">
       <AuthContextProvider>
