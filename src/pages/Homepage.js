@@ -7,6 +7,7 @@ import IntroSection from "./introSection";
 import About from "./About";
 import ProjectForm from "./projectForm";
 import FooterCopyright from "./footercopyright";
+import BackToTop from "../utils/BackToTop";
 
 import "../style/mackup.css";
 
@@ -29,6 +30,7 @@ const Homepage = () => {
       <div className="demo">
         {/* <img src="http://unsplash.it/1000/1000?image=564" alt="" /> */}
       </div>
+      <BackToTop />
     </div>
   );
 };

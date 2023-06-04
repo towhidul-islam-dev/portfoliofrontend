@@ -8,9 +8,6 @@ import "../style/resume.css"
 
 const Resume = () => {
     const [resume, setResume] = useState(ResumeData);
-    useEffect(() => {
-        console.log(resume);
-    },[resume])
   return (
     <div className='resume_page'>
         <div className='resume'>
@@ -49,18 +46,26 @@ const Resume = () => {
                         </div>
                         {
                             resume.map(res => {
-                                const {projectName, project_info, projectLink, project_info1, projectLink1} = res;
+                                const {projectName, project_info, projectLink, project_info1, projectLink1,project_info2, projectLink2,project_info3,projectLink3} = res;
                                 return (
                                     <div className="project">
                                         <h3>{projectName}</h3>
                                         <div className="project_content">
                                             <ul>
-                                                <li className='project_info'><span>#</span>{project_info}</li>
-                                                <a className='project_link' href={projectLink}>{projectLink}</a>
+                                                <li className='project_info'>{project_info && <span>#</span>}{project_info && project_info}</li>
+                                                <a className='project_link' href={projectLink && projectLink}>{projectLink && projectLink}</a>
                                             </ul>
                                             <ul>
-                                                <li className='project_info'><span>#</span>{project_info1}</li>
-                                                <a className='project_link' href={projectLink1}>{projectLink1}</a>
+                                                <li className='project_info'>{project_info1 && <span>#</span>}{project_info1 && project_info1}</li>
+                                                <a className='project_link' href={projectLink1 && projectLink1}>{projectLink1 && projectLink1}</a>
+                                            </ul>
+                                            <ul>
+                                                <li className='project_info'>{project_info2 && <span>#</span>}{project_info2 && project_info2}</li>
+                                                <a className='project_link' href={projectLink2 && projectLink2}>{projectLink2 && projectLink2}</a>
+                                            </ul>
+                                            <ul>
+                                                <li className='project_info'>{project_info3 && <span>#</span>}{project_info3 && project_info3}</li>
+                                                <a className='project_link' href={projectLink3 && projectLink3}>{projectLink3 && projectLink3}</a>
                                             </ul>
                                         </div>
                                     </div>

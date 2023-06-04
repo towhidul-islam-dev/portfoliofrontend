@@ -56,10 +56,9 @@ const Navbar = () => {
 
   return (
     <div className="main_nav" ref={navBar}>
-      {/* <h2>{width}px</h2> */}
       <div
         className="nav_container  container"
-        style={{ paddingBlock: "unset" }}
+        style={{paddingBlock: "unset" }}
       >
         <div className="logo">
           <img src={Logo} alt="" />

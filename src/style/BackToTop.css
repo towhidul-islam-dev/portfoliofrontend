@@ -1,0 +1,34 @@
+.backToTop{
+    width: max(4rem, 100%);
+    
+}
+.topBtn{
+    cursor: pointer;
+    z-index: 999;
+    position: fixed;
+    left: 90%;
+    top: 85%;
+    font-size: 3rem;
+    border-radius: 50%;
+    background-color: hsla(120, 0%, 46%, 0.315);
+    outline: 2px solid rgb(146, 146, 146);
+    color: #ffffff63;
+    margin: 1rem;
+    -webkit-backdrop-filter: blur(1rem);
+    -webkit-animation: topBtnAnimation 4s ease-in-out infinite alternate forwards;
+    
+}
+@keyframes topBtnAnimation {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    75%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

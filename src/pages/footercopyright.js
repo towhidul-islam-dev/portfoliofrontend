@@ -14,7 +14,6 @@ const FooterCopyright = () => {
 
   const setCurrentYear = () => {
     const thisYear = new Date().getFullYear();
-    console.log(thisYear);
     setYear(thisYear);
   };
   useEffect(() => {
